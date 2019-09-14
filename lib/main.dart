@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _set() async {
     for (int i = 0; i < 100; i++) {
       var scheduledNotificationDateTime =
-          new DateTime.now().add(new Duration(days: i));
+          new DateTime.now().add(new Duration(days: i+1));
       var androidPlatformChannelSpecifics = new AndroidNotificationDetails(
           'your other channel id',
           'your other channel name',
@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
       NotificationDetails platformChannelSpecifics = new NotificationDetails(
           androidPlatformChannelSpecifics, iOSPlatformChannelSpecifics);
       await plugin.schedule(
-          0,
+          i,
           'scheduled title',
           'scheduled body',
           scheduledNotificationDateTime,
